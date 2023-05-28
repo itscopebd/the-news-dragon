@@ -3,6 +3,7 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { useContext } from 'react';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 const NavigationBar = () => {
 
     const { User, logOut } = useContext(AuthContext);
@@ -20,6 +21,7 @@ const logOutRedirect=useNavigate();
 
     return (
         <Container>
+            
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className=''>
 
 

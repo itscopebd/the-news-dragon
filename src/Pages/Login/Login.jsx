@@ -3,15 +3,19 @@ import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
+
+    useTitle("Register")
     const { singIn } = useContext(AuthContext)
     // console.log(singIn)
     const location = useLocation();
 
     const navigate = useNavigate()
     const from=location.state?.form?.pathname || "/";
-    console.log("login Location", location)
+
     const handleSingIn = event => {
         event.preventDefault();
         const form = event.target;
@@ -29,6 +33,7 @@ const Login = () => {
 
     return (
         <Container className='w-25 mx-auto my-4'>
+             
             <h4 className='text-center'>Login Now</h4>
             <Form onSubmit={handleSingIn}>
                 <Form.Group className="mb-3" controlId="formGroupEmail">

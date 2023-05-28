@@ -3,10 +3,11 @@ import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
     const { createUser, verifiyedEmailSend } = useContext(AuthContext);
-    const [accepted,setAccepted]=useState(false)
+    const [accepted, setAccepted] = useState(false)
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -27,13 +28,17 @@ const Register = () => {
             })
     }
 
-const handleTerms=(e)=>{
-    setAccepted(e.target.checked)
-}
+    const handleTerms = (e) => {
+        setAccepted(e.target.checked)
+    }
 
 
     return (
         <Container className='w-25 mx-auto my-4'>
+            <Helmet>
+
+                <title>Register</title>
+            </Helmet>
             <h4 className='text-center'>Register Now</h4>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3">
